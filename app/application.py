@@ -4,11 +4,15 @@ import sqlite3
 # --- SET UP ---
 
 app = Flask(__name__)
+sqlite_file = "user_data.sqlite"
+cwd = os.path.dirname(os.path.realpath(__file__))
 
 # --- MODULES ---
 
 def create_table_for_user(account_id):
-	pass
+	conn = sqlite3.connect(cwd + "/" + sqlite_file)
+	c = conn.cursor()
+	c.execute("""CREATE TABLE ?()""",[])
 
 # --- ROUTES ---
 
