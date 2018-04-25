@@ -1,16 +1,16 @@
 from flask import Flask, render_template
 import sqlite3
 
-# --- SET UP ---
+#! --- SET UP ---
 
 app = Flask(__name__)
 
-# --- MODULES ---
+#! --- MODULES ---
 
 def create_table_for_user(account_id):
 	pass
 
-# --- ROUTES ---
+#! --- ROUTES ---
 
 @app.route("/")
 def index():
