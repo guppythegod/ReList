@@ -19,7 +19,7 @@ def create_task_table_for_user(account_id):
 	c = conn.cursor() # sets up a cursor
 	exit_code = 0
 	try:
-		c.execute("""CREATE TABLE ?(task TEXT NOT NULL, status BOOL NOT NULL)""",[account_id,]) # creates a new table based on the account id
+		c.execute("""CREATE TABLE ?(task TEXT NOT NULL, status INT NOT NULL)""",[account_id,]) # creates a new table based on the account id
 		exit_code = 1
 	except Exception as e:
 		print("create_task_table_user !!! " + e, file=sys.stderr)
@@ -47,6 +47,18 @@ def create_new_user(name, email, password):
 """ this function returns a list of tasks based a users account_id """
 
 def get_tasks(account_id):
+	conn = sqlite3.connect(cwd + "/" + user_data_db) # opens the user_data database
+	c = conn.cursor() # sets up a cursor
+	c.execute("""FROM ? SELECT tasks WHERE status = 1""",[account_id])
+	task_list = []
+	fetched = c.fetchall()
+	for i in range(len(fetched)):
+		pass
+	
+def complete_task(account_id, task_id):
+	pass
+
+def create_task(account_id, task_name):
 	pass
 
 # --- ROUTES ---
