@@ -13,7 +13,7 @@ conn = sqlite3.connect(cwd + "/" + sqlite_file)
 c = conn.cursor()
 
 # Creates table, 'url_data' with neccessary columns and keys
-c.execute("""CREATE TABLE url_data(id INT NOT NULL, name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL,PRIMARY KEY (id));""")
+c.execute("""CREATE TABLE url_data(id TEXT NOT NULL, name TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL,PRIMARY KEY (id));""")
 
 conn.commit() # commit the changes to the db
 conn.close() # close the database
